@@ -1,0 +1,267 @@
+{
+  "login": {
+    "token": "68ec323e-7b1a-4923-8a16-f8e0ce4247aa",
+    "email": "a@m.m",
+    "rol": "BUSINESS",
+    "businessId": 1,
+    "userId": 1
+  },
+  "contract-type": [
+    {
+      "id": 1,
+      "type": "COMPLETA"
+    },
+    {
+      "id": 2,
+      "type": "AUTÓNOMO"
+    },
+    {
+      "id": 3,
+      "type": "FORMATIVO"
+    },
+    {
+      "id": 4,
+      "type": "PARCIAL"
+    },
+    {
+      "id": 5,
+      "type": "RELEVO"
+    },
+    {
+      "id": 6,
+      "type": "FIJO DISCONTINUO"
+    },
+    {
+      "id": 7,
+      "type": "OTROS"
+    }
+  ],
+  "workday": [
+    {
+      "id": 1,
+      "name": "COMPLETA",
+      "hours": 8
+    },
+    {
+      "id": 2,
+      "name": "MEDIA JORNADA MAÑANA",
+      "hours": 4
+    },
+    {
+      "id": 3,
+      "name": "MEDIA JORNADA TARDE",
+      "hours": 4
+    },
+    {
+      "id": 4,
+      "name": "FLEXIBLE",
+      "hours": 0
+    },
+    {
+      "id": 5,
+      "name": "FINES DE SEMANA",
+      "hours": 8
+    }
+  ],
+  "requested-professional-experience": [
+    {
+      "id": 1,
+      "occupation": "OFICIAL DE PELUQUERÍA"
+    },
+    {
+      "id": 2,
+      "occupation": "ESTUDIANTE DE PELUQUERÍA"
+    },
+    {
+      "id": 3,
+      "occupation": "AYUDANTE DE PELUQUERÍA"
+    },
+    {
+      "id": 4,
+      "occupation": "FORMADOR TÉCNICO DE PELUQUERÍA"
+    },
+    {
+      "id": 5,
+      "occupation": "BARBERO"
+    },
+    {
+      "id": 6,
+      "occupation": "COMERCIAL VENTA PELUQUERÍA"
+    },
+    {
+      "id": 7,
+      "occupation": "ESTETICISTA"
+    },
+    {
+      "id": 8,
+      "occupation": "MANICURISTA"
+    },
+    {
+      "id": 9,
+      "occupation": "ESTUDIANTE DE ESTÉTICA"
+    },
+    {
+      "id": 10,
+      "occupation": "FORMADOR/TÉCNICO DE ESTÉTICA"
+    },
+    {
+      "id": 11,
+      "occupation": "TÉCNICO FX"
+    },
+    {
+      "id": 12,
+      "occupation": "FISIOTERAPEUTA"
+    },
+    {
+      "id": 13,
+      "occupation": "OSTEÓPATA"
+    },
+    {
+      "id": 14,
+      "occupation": "MASAJISTA"
+    },
+    {
+      "id": 15,
+      "occupation": "QUIROMASAJE"
+    },
+    {
+      "id": 16,
+      "occupation": "PELUQUERO CANINO"
+    }
+  ],
+  "year-of-experience": [
+    {
+      "id": 1,
+      "description": "1 AÑO"
+    },
+    {
+      "id": 2,
+      "description": "2 AÑOS"
+    },
+    {
+      "id": 3,
+      "description": "ENTRE 3 Y 5 AÑOS"
+    },
+    {
+      "id": 4,
+      "description": "ENTRE 5 Y 10 AÑOS"
+    },
+    {
+      "id": 5,
+      "description": "MÁS DE 10 AÑOS"
+    },
+    {
+      "id": 6,
+      "description": "ESTUDIANTE EN PRÁCTICAS"
+    },
+    {
+      "id": 7,
+      "description": "SIN EXPERIENCIA"
+    }
+  ],
+  "offer": [
+    {
+      "id": 1,
+      "title": "Oficial de Peluquería",
+      "description": "En peluquería Loreta Valdéz buscamos un oficial de peluquería con experiencia en barbería para nuestro centro en San Sebastían de los Reyes",
+      "requirements": "Conocimientos en Balayage, BabyLight, Colorimetría de Loreal",
+      "salaryAmountMinFormatted": "EUR 1200.00",
+      "salaryAmountMin": 1200,
+      "salaryAmountMaxFormatted": "EUR 1500.00",
+      "salaryAmountMax": 1500,
+      "subscribed": false,
+      "location": "Calle Torres No 8. San Sebastián de los Reyes",
+      "status": "CLOSED",
+      "contractType": {
+        "id": 1,
+        "type": "COMPLETA"
+      },
+      "workday": {
+        "id": 1,
+        "name": "COMPLETA",
+        "hours": 8
+      },
+      "requestedProfessionalExperience": {
+        "id": 1,
+        "occupation": "OFICIAL DE PELUQUERÍA"
+      },
+      "yearsOfExperience": {
+        "id": 1,
+        "description": "1 AÑO"
+      },
+      "business": {
+        "id": 1,
+        "userId": 2,
+        "name": "Peluquería Test 1"
+      },
+      "createdDate": "2021-03-09T20:24:48.921+00:00",
+      "updatedDate": "2021-03-10T00:16:25.608+00:00"
+    },
+    {
+      "id": 2,
+      "title": "Ayudante de Peluquería",
+      "description": "Espacio de peluquería del centro de madrid busca un ayudante de peluquería. Se valorará idiomas, conocimientos de gestión y de salón.",
+      "requirements": "Experiencia en técnicas de corte y color unisex",
+      "salaryAmountMinFormatted": "EUR 1000.00",
+      "salaryAmountMin": 1000,
+      "salaryAmountMaxFormatted": "EUR 1300.00",
+      "salaryAmountMax": 1300,
+      "subscribed": true,
+      "location": "Calle Fuencarral No. 1 Madrid",
+      "status": "OPENED",
+      "contractType": {
+        "id": 2,
+        "type": "AUTÓNOMO"
+      },
+      "workday": {
+        "id": 2,
+        "name": "MEDIA JORNADA MAÑANA",
+        "hours": 4
+      },
+      "requestedProfessionalExperience": {
+        "id": 2,
+        "occupation": "ESTUDIANTE DE PELUQUERÍA"
+      },
+      "yearsOfExperience": {
+        "id": 2,
+        "description": "2 AÑOS"
+      },
+      "business": {
+        "id": 2,
+        "userId": 3,
+        "name": "Peluquería Test 2"
+      },
+      "createdDate": "2021-03-09T20:24:55.049+00:00",
+      "updatedDate": "2021-03-09T20:24:55.049+00:00"
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "name": "Aliany",
+      "lastName": "Crespo",
+      "birthdate": "1986-01-28T00:00:00.000+00:00",
+      "address": "Calle Springboot 1, Madrid, Madrid",
+      "postalCode": "28053",
+      "phoneNumber": "123456789",
+      "presentationText": "test 2",
+      "user": {
+        "id": 1,
+        "username": "test@test.com",
+        "password": "$2a$10$PXeuXo/WfAxnGnE9iT2Bm.Yz.jCt9RnBQpoeFVimMkfhlquq4wdGa",
+        "rol": "WORKER"
+      },
+      "requestedProfessionalExperience": {
+        "id": 2,
+        "occupation": "ESTUDIANTE DE PELUQUERÍA"
+      },
+      "yearsOfExperience": {
+        "id": 2,
+        "description": "2 AÑOS"
+      },
+      "createdDate": "2021-03-10T00:41:01.819+00:00",
+      "updatedDate": "2021-03-10T00:42:34.329+00:00"
+    }
+  ],
+  "profileAux": []
+}

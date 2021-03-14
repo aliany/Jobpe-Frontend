@@ -1,0 +1,53 @@
+@import "../../../../color.scss";
+
+.mat-toolbar-row {
+  background-color: $orange;
+  padding: 0 100px;
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .title {
+    color: white;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-button-base {
+    margin-right: 10px;
+  }
+
+  .icon {    
+    color: white;
+    font-size: 30px;
+  } 
+
+  .logout {
+    cursor: pointer;
+  }
+
+  .menu {
+    width: auto;
+  }
+
+  .user {
+    display: flex;
+    margin: 0 30px;
+    border-right: 2px solid white;
+
+    .mat-icon {
+      font-size: 36px;
+    }
+
+    span {
+      font-size: 14px;
+      margin: 0 10px 0 20px;
+    }
+  }
+}

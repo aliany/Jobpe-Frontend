@@ -1,0 +1,105 @@
+@import "../../../../color.scss";
+
+.offers {  
+  margin: 20px 150px 20px 150px;
+}
+
+.offers-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    background-color: $orange;
+    color: white;
+  }
+}
+
+.offers-filter {
+  form {
+    display: flex; 
+    justify-content: flex-start;
+  }
+
+  .agrup-button {
+    display: flex; 
+    justify-content: flex-end;
+
+    .mat-button-base {
+      margin-left: 10px;
+    }
+
+
+  }
+  
+  .mat-form-field {
+    width: 500px;
+  }
+}
+
+.container-card {
+  display: flex;
+  align-items: center;
+  margin: 20px 150px 20px 150px;
+  box-shadow: 1px 3px 3px 3px rgba(0, 0.1, 0.2, 0.1);
+
+  .card {
+    width: 100%;
+  }
+
+  .mat-card-actions {
+    justify-content: flex-end;
+    display: flex;
+  }
+
+  .mat-card-title {
+    color: $orange;
+  }
+
+  .mat-card-content {
+    margin-bottom: 10px;
+    margin: 0 16px;
+
+    p {
+      text-align: justify;
+    }
+  }
+
+  .container-body {
+    display: flex;
+
+    p {
+      padding: 0 20px;
+    }
+
+    div {
+      padding-right: 30px;
+      border-right: 1px solid $orange;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    div:last-child {
+      border-right: transparent;
+    }
+
+    div:nth-child(2),
+    div:nth-child(3) {
+      padding-left: 30px;
+    }
+  }
+  button {
+    background-color: $orange;
+    color: white;
+  }
+
+  .mat-card-actions {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    .mat-icon {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+<div class="offers offers-header" *ngIf="rol === 'BUSINESS'">
+  <button mat-raised-button cdkFocusInitial class="acept-button" matTooltip="Adicionar"
+    (click)="editOffers(null, false)">Adicionar</button>
+</div>
+
+<div class="offers offers-filter" *ngIf="rol === 'WORKER'">
+  <form>
+    <mat-form-field>
+      <mat-label>Buscar oferta</mat-label>
+      <input matInput [formControl]="name" name="name" id="name" type="text">
+    </mat-form-field>
+
+    <mat-radio-group [formControl]="typeSelect">
+      <span *ngFor="let item of filtersOffers">
+        <mat-radio-button [value]="item.id" (change)="changeType(item.id)">
+          {{item.name}}
+        </mat-radio-button>
+      </span>
+    </mat-radio-group>
+
+  </form>
+  <div class="agrup-button">
+    <button mat-raised-button cdkFocusInitial matTooltip="Limpiar" (click)="cleanSearch()">Limpiar</button>
+    <button mat-raised-button cdkFocusInitial class="acept-button" matTooltip="Buscar Oferta"
+      (click)="filterSearch()">Buscar</button>
+  </div>
+</div>
+
+<div class="container-card" *ngFor="let item of dataOffersAux">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+      <mat-card-subtitle>{{item.business.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{item.description}}
+      </p>
+      <div class="container-body">
+        <div *ngIf="item?.contractType">{{item.contractType.type}}</div>
+        <div *ngIf="item?.workday">{{item.workday.name}}</div>
+        <div *ngIf="item?.salaryAmountMinFormatted && item?.salaryAmountMaxFormatted">
+          {{item.salaryAmountMinFormatted}} ---{{item.salaryAmountMaxFormatted}}
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button cdkFocusInitial class="acept-button" *ngIf="rol === 'WORKER' && !item.subscribed"
+        (click)="subscribeOffer(item.id)">
+        Suscribirse
+      </button>
+      <button mat-raised-button cdkFocusInitial class="acept-button" *ngIf="rol === 'WORKER' && item.subscribed"
+        (click)="cancelSubscribeOffer(item.id)">
+        Cancelar Suscripción
+      </button>
+      <button mat-raised-button cdkFocusInitial class="acept-button" *ngIf="rol === 'BUSINESS'" matTooltip="Editar"
+        (click)="editOffers(item, true)">
+        Editar
+      </button>
+      <button mat-raised-button cdkFocusInitial class="acept-button" *ngIf="rol === 'BUSINESS'" matTooltip="Eliminar"
+        (click)="deleteOffer(item.id)">
+        Eliminar
+      </button>
+      <button mat-raised-button cdkFocusInitial class="acept-button" *ngIf="rol === 'BUSINESS'" matTooltip="Desactivar"
+        (click)="desactivarOffer(item.id)">
+        <div *ngIf="item.status === 'OPENED'">Desactivar</div>
+        <div *ngIf="item.status === 'CLOSED'">Activar</div>
+      </button>
+      <button mat-raised-button cdkFocusInitial (click)="detailClick(item)" class="acept-button" matTooltip="Detalle">
+        Detalle
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,134 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            {{data.title}}
+        </div>
+        <div class="modal-body">
+
+            <form>
+
+                <div class="agrup-inputs">
+                    <mat-form-field>
+                        <mat-label>Título</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="title"
+                            name="title" id="title" required (blur)="checkInputs()" type="text" autocomplete="off">
+                        <mat-error *ngIf="title.hasError('required')">
+                            El título es <strong>requerido</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="title.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('title')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Descripción</mat-label>
+                            <textarea matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="description"
+                            name="description" id="description" required (blur)="checkInputs()" type="text"
+                            autocomplete="off"></textarea>
+                        <mat-error *ngIf="description.hasError('required')">
+                            El descripción es <strong>requerido</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="description.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('description')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Requerimientos</mat-label>
+                        <textarea matInput [formControl]="requirements" name="requirements" id="requirements" type="text"
+                            autocomplete="off"></textarea>
+                        <button mat-button *ngIf="requirements.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('requirements')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="agrup-range">
+                    <mat-form-field>
+                        <mat-label>Rango Salarial Mínimo</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="min" name="min"
+                            id="min" (blur)="checkInputs()" type="number" autocomplete="off">
+                        <button mat-button *ngIf="min.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('min')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Rango Salarial Máximo</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="max" name="max"
+                            id="max" (blur)="checkInputs()" type="number" autocomplete="off">
+                        <button mat-button *ngIf="max.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('max')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="agrup-inputs">
+                    <mat-form-field>
+                        <mat-label>Localización</mat-label>
+                        <input matInput [formControl]="location" name="location" id="location" type="text"
+                            autocomplete="off" required>
+                        <button mat-button *ngIf="location.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('location')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="agrup-range">
+                    <mat-form-field>
+                        <mat-label>Tipo de contrato</mat-label>
+                        <mat-select [formControl]="contractType" name="contractType" required
+                            (selectionChange)="selectChangeContract($event)">
+                            <mat-option *ngFor="let element of listContractType" [value]="element.id">
+                                {{element.type}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Tipo de Jornada</mat-label>
+                        <mat-select [formControl]="workday" name="workday" required
+                            (selectionChange)="selectChangeWorday($event)">
+                            <mat-option *ngFor="let element of listWorkDay" [value]="element.id">
+                                {{element.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Experiencia Profesional</mat-label>
+                        <mat-select [formControl]="experience" name="experience" required
+                            (selectionChange)="selectChangeExperience($event)">
+                            <mat-option *ngFor="let element of listExperience" [value]="element.id">
+                                {{element.occupation}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Años de experiencia</mat-label>
+                        <mat-select [formControl]="year" name="year" required
+                            (selectionChange)="selectChangeYear($event)">
+                            <mat-option *ngFor="let element of listYears" [value]="element.id">
+                                {{element.description}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button mat-raised-button cdkFocusInitial (click)="cancelClick()">Cancel</button>
+            <button mat-raised-button cdkFocusInitial class="acept-button" [disabled]="disabledButton"
+                (click)="aceptClick()">Aceptar</button>
+        </div>
+    </div>
+</div>

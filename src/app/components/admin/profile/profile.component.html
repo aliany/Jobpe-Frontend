@@ -1,0 +1,129 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Perfil
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="modal-first">
+                    <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="name"
+                            name="name" id="name" required (blur)="checkInputs()" type="text" autocomplete="off">
+                        <mat-error *ngIf="name.hasError('name') && !name.hasError('required')">
+                            Por favor, introduzca el nombre.
+                        </mat-error>
+                        <mat-error *ngIf="name.hasError('required')">
+                            El nombre es <strong>requerido</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="name.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('name')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field class="total-width">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="lastName"
+                            name="lastName" id="lastName" required (blur)="checkInputs()" type="text"
+                            autocomplete="off">
+                        <mat-error *ngIf="lastName.hasError('required')">
+                            Los Apellidos son <strong>requeridos</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="lastName.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('lastName')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="modal-first">
+                    <mat-form-field class="total-width">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="address"
+                            name="address" id="address" (blur)="checkInputs()" type="text" autocomplete="off">
+                        <mat-error *ngIf="address.hasError('required')">
+                            Los Apellidos son <strong>requeridos</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="address.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('address')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="modal-first">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fecha de Nacimiento</mat-label>
+                        <input matInput [matDatepicker]="picker" [formControl]="date" readonly
+                            (ngModelChange)="checkInputs()">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="width-150">
+                        <mat-label>Código Postal</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="cod" name="cod"
+                            id="cod" (blur)="checkInputs()" type="number" autocomplete="off">
+                        <button mat-button *ngIf="cod.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('cod')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field class="total-width">
+                        <mat-label>Teléfono</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="tel" name="tel"
+                            id="tel" required (blur)="checkInputs()" type="number" autocomplete="off">
+                        <span matPrefix>+34 &nbsp;</span>
+                        <button mat-button *ngIf="tel.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('tel')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="modal-first">
+                    <mat-form-field class="total-width">
+                        <mat-label>Tarjeta de Presentación</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="presentation"
+                            name="presentation" id="presentation" (blur)="checkInputs()" type="text"
+                            autocomplete="off">
+                        <button mat-button *ngIf="presentation.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('presentation')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="modal-first">
+                    <mat-form-field class="total-width">
+                        <mat-label>Experiencia Profesional</mat-label>
+                        <mat-select [formControl]="experience" name="experience" required
+                            (selectionChange)="selectChangeExperience($event)">
+                            <mat-option *ngFor="let element of listExperience" [value]="element.id">
+                                {{element.occupation}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="total-width">
+                        <mat-label>Años de experiencia</mat-label>
+                        <mat-select [formControl]="year" name="year" required
+                            (selectionChange)="selectChangeYear($event)">
+                            <mat-option *ngFor="let element of listYears" [value]="element.id">
+                                {{element.description}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button mat-raised-button cdkFocusInitial (click)="cancelClick()">Cancel</button>
+            <button mat-raised-button cdkFocusInitial (click)="aceptClick()" class="acept-button"
+                [disabled]="disabledButton">Aceptar</button>
+        </div>
+    </div>
+</div>

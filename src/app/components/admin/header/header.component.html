@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <img class="logo" src="/assets/img/Job-pe-logo-fondo-tranaparente.png" alt="Logo" />
+        <span class="title">Job-PE</span>
+        <span class="spacer"></span>
+        <button mat-raised-button cdkFocusInitial (click)="login(true)" *ngIf="hideButton">Registrarse</button>
+        <button mat-raised-button cdkFocusInitial (click)="login(false)" *ngIf="hideButton">Iniciar Sesión</button>
+
+        <div class="user" *ngIf="rol !== ''">
+            <mat-icon class="icon" aria-hidden="false" aria-label="face" *ngIf="rol === 'WORKER'">face
+            </mat-icon>
+            <mat-icon class="icon" aria-hidden="false" aria-label="business" *ngIf="rol === 'BUSINESS'">business
+            </mat-icon>
+            <span>
+                {{email}}
+                <button *ngIf="rol === 'WORKER'" class="menu" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+                     <mat-icon class="icon" >more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu" xPosition="before">
+                    <button mat-menu-item (click)="profile()">
+                      <mat-icon>dialpad</mat-icon>
+                      <span>Perfil</span>
+                    </button>
+                  </mat-menu>
+            </span>
+        </div>
+
+        <mat-icon class="icon logout" aria-hidden="false" aria-label="logout" (click)="logout()" *ngIf="!hideButton">logout
+        </mat-icon>
+    </mat-toolbar-row>
+</mat-toolbar>

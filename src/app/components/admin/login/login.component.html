@@ -1,0 +1,75 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            {{data.title}}
+        </div>
+        <div class="modal-body">
+
+            <form>
+                <div class="modal-agrup">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="email"
+                            name="email" id="email" required (blur)="checkInputs()" type="email" autocomplete="off"
+                            placeholder="ejemplo@ejemplo.com">
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                            Por favor, introduzca una dirección de correo valida.
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            El email es <strong>requerido</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="email.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('email')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="password"
+                            name="password" id="password" required (blur)="checkInputs()" type="password"
+                            autocomplete="off">
+                        <mat-error *ngIf="password.hasError('required')">
+                            El contraseña es <strong>requerida</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="password.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('password')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-radio-group [formControl]="type" *ngIf="data.checkInDialog">
+                        <span *ngFor="let item of typeList">
+                            <mat-radio-button [value]="item.id" (change)="changeType(item.id)">
+                                {{item.name}}
+                            </mat-radio-button>
+                        </span>
+                    </mat-radio-group>
+                </div>
+                <div class="modal-agrup name">
+                    <mat-form-field *ngIf="type.value === 2">
+                        <mat-label>Nombre de la Empresa</mat-label>
+                        <input matInput (change)="checkInputs()" (keyup)="checkInputs()" [formControl]="name"
+                            name="name" id="name" required (blur)="checkInputs()" type="text" autocomplete="off"
+                            placeholder="Nombre">
+                        <mat-error *ngIf="name.hasError('required')">
+                            El nombre de la empresa es <strong>requerido</strong>
+                        </mat-error>
+                        <button mat-button *ngIf="name.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="cleanInput('name')">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button mat-raised-button cdkFocusInitial (click)="cancelClick()">Cancel</button>
+            <button mat-raised-button cdkFocusInitial (click)="aceptClick()" class="acept-button"
+                [disabled]="disabledButton">Aceptar</button>
+        </div>
+    </div>
+</div>

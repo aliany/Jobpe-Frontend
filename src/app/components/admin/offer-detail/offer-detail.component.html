@@ -1,0 +1,75 @@
+<div class="container-card">
+  <mat-card class="card">
+    <div class="arrow-back">
+      <mat-icon (click)="goOffers()">keyboard_backspace</mat-icon>
+    </div>
+    <mat-card-header>
+      <mat-card-title>{{offerData?.title}}</mat-card-title>
+      <mat-card-subtitle>{{offerData?.business.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container-body">
+        <ul>
+          <li>{{offerData?.location}}</li>
+          <li> Publicada: {{offerData?.createdDate}}</li>
+          <li *ngIf="offerData?.salaryAmountMinFormatted && offerData?.salaryAmountMaxFormatted">
+            {{offerData.salaryAmountMaxFormatted}}</li>
+        </ul>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button cdkFocusInitial class="acept-button"
+        (click)="subscribe(offerData.id)" *ngIf="user?.rol === 'WORKER' && !offerData.subscribed">Suscribirse</button>
+      <button mat-raised-button cdkFocusInitial class="acept-button"
+        *ngIf="user?.rol === 'WORKER' && offerData.subscribed" (click)="cancelSubscribeOffer(offerData.id)">
+        Cancelar Suscripción
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="container-card">
+  <mat-card class="card">
+    <mat-card-header>
+      <h2>Requisitos</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container-body">
+        <h3>Experiencia mínima</h3>
+        <p>{{offerData?.requestedProfessionalExperience.occupation}}</p>
+        <p>{{offerData?.yearsOfExperience.description}}</p>
+      </div>
+      <div class="container-body">
+        <h3>Tipo de contrato</h3>
+        <p>{{offerData?.contractType.type}}</p>
+      </div>
+      <div class="container-body">
+        <h3>Requisitos mínimos</h3>
+        <p>{{offerData?.requirements}}</p>
+      </div>
+      <hr>
+      <div class="container-body">
+        <h2>Descripción</h2>
+        <p>{{offerData?.description}}</p>
+      </div>
+      <div class="container-body">
+        <h3>Jornada</h3>
+        <p>{{offerData?.workday.name}}</p>
+        <p>{{offerData?.workday.hours}} hours</p>
+      </div>
+      <div class="container-body">
+        <h3>Salario</h3>
+        <p>{{offerData?.salaryAmountMinFormatted}} - {{offerData?.salaryAmountMaxFormatted}}</p>
+
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button style="margin-top: 30px; " mat-raised-button cdkFocusInitial class="acept-button"
+        (click)="subscribe(offerData.id)" *ngIf="user?.rol === 'WORKER' && !offerData.subscribed">Suscribirse</button>
+      <button style="margin-top: 30px; " mat-raised-button cdkFocusInitial class="acept-button"
+        *ngIf="user?.rol === 'WORKER' && offerData.subscribed" (click)="cancelSubscribeOffer(offerData.id)">
+        Cancelar Suscripción
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
